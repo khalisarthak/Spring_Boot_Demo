@@ -40,6 +40,7 @@ public class UserService {
     }
     public String deleteUser(int id)
     {
+        UserInformation userInformation=this.userRepo.findById(id).orElseThrow(()-> new ResourceNotFound("user","id",id));
         this.userRepo.deleteById(id);
         return "User deleted successfully";
     }
